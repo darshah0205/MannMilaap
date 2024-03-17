@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import DataNotFound from "./DataNotFound";
 // import Modal from "./Modal";
 
 const Table = ({ data, userName, setModalData }) => {
@@ -53,7 +54,9 @@ const Table = ({ data, userName, setModalData }) => {
               >
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className={`px-6 py-4 font-medium whitespace-nowrap dark:text-white ${
+                    user.gender === "boy" ? "text-blue-500" : "text-pink-500"
+                  }`}
                 >
                   {user.full_name}
                 </th>
@@ -75,7 +78,7 @@ const Table = ({ data, userName, setModalData }) => {
           </tbody>
         </table>
       ) : (
-        <h1>No data found</h1>
+        <DataNotFound />
       )}
     </div>
   );
